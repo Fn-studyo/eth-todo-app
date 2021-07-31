@@ -13,10 +13,17 @@ contract TodoList {
         bool done;
     }
 
+    event TaskAdded(
+        uint id,
+        string description,
+        bool done
+    );
+
     mapping (uint => Task) public tasks;
 
     function addTask(string memory _description) public {
         uint id = ++todoCount;
         tasks[todoCount] = Task(todoCount, _description, false);
+        emit TaskAdded(todoCount, _description, false);
     }
 }
