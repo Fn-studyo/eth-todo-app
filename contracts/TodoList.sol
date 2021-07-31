@@ -17,6 +17,6 @@ contract TodoList {
 
     function addTask(string memory _description) public {
         uint id = ++todoCount;
-        tasks[todoCount] = Task(taskC, _description, false);
+        tasks[todoCount] = Task(todoCount, _description, false);
     }
 }
